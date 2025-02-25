@@ -6,11 +6,29 @@
 /*   By: jmafueni <jmafueni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 16:08:02 by jmafueni          #+#    #+#             */
-/*   Updated: 2025/02/24 19:00:48 by jmafueni         ###   ########.fr       */
+/*   Updated: 2025/02/25 17:43:14 by jmafueni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+void	file_to_image(t_data *data)
+{
+	int	height;
+	int	width;
+
+	data->path_wall = "images/img_wall.xpm";
+	data->path_floor = "images/img_floor.xpm";
+	data->img_wall = mlx_xpm_file_to_image(data->vars->mlx_ptr,
+			data->path_wall, &width, &height);
+	data->img_floor = mlx_xpm_file_to_image(data->vars->mlx_ptr,
+			data->path_floor, &width, &height);
+	if (!data->img_floor || !data->img_wall)
+	{
+		exit_game(data);
+		exit(0);
+	}
+}
 
 int	little_ft_atoi(char *s)
 {

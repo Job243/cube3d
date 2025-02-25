@@ -6,7 +6,7 @@
 /*   By: jmafueni <jmafueni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:56:40 by jmafueni          #+#    #+#             */
-/*   Updated: 2025/02/24 17:45:53 by jmafueni         ###   ########.fr       */
+/*   Updated: 2025/02/25 17:28:28 by jmafueni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@
 # include <string.h>
 # include <unistd.h>
 # include <fcntl.h>
+
+typedef struct s_vars
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+}	t_vars;
 
 typedef struct s_game
 {
@@ -48,13 +54,21 @@ typedef struct s_data
 	int		floor_r;
 	int		floor_g;
 	int		floor_b;
+	char	*path_floor;
+	char	*path_wall;
+	void	*img_floor;
+	void	*img_wall;
+	t_game	*game;
+	t_vars	*vars;
 }	t_data;
 
 int	check_color_value(t_data *data);
 int	empty_line(char *s);
+int	exit_game(t_data *data);
 int	ft_tabsize(char **tab);
 int	is_space(char c);
 int	little_ft_atoi(char *s);
 int	map_closed_inside(char **map, int begin, int end);
+int	map_error(const char *message, t_data *data);
 
 #endif
