@@ -6,7 +6,7 @@
 /*   By: jmafueni <jmafueni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 17:29:53 by jmafueni          #+#    #+#             */
-/*   Updated: 2025/02/25 17:30:31 by jmafueni         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:04:10 by jmafueni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_free(char **tab)
 	size_t	i;
 
 	i = 0;
+	if (!tab)
+		return ;
 	while (tab[i])
 	{
 		free(tab[i]);
@@ -39,9 +41,9 @@ void	free_vars(t_data *data)
 	}
 }
 
-int	exit_game(t_data *data)
+int	clear_cub3d(t_data *data)
 {
-	free_images(data);
+	//free_images(data);
 	if (data->vars)
 	{
 		if (data->vars->mlx_ptr && data->vars->win_ptr)

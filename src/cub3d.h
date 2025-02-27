@@ -6,15 +6,15 @@
 /*   By: jmafueni <jmafueni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:56:40 by jmafueni          #+#    #+#             */
-/*   Updated: 2025/02/25 17:28:28 by jmafueni         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:28:55 by jmafueni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "libft/includes/get_next_line.h"
-# include "libft/includes/libft.h"
+# include "../libft/includes/get_next_line.h"
+# include "../libft/includes/libft.h"
 # include <mlx.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
@@ -62,13 +62,15 @@ typedef struct s_data
 	t_vars	*vars;
 }	t_data;
 
-int	check_color_value(t_data *data);
-int	empty_line(char *s);
-int	exit_game(t_data *data);
-int	ft_tabsize(char **tab);
-int	is_space(char c);
-int	little_ft_atoi(char *s);
-int	map_closed_inside(char **map, int begin, int end);
-int	map_error(const char *message, t_data *data);
+int		clear_cub3d(t_data *data);
+int		check_color_value(t_data *data);
+int		empty_line(char *s);
+int		ft_tabsize(char **tab);
+int		is_space(char c);
+int		little_ft_atoi(char *s);
+int		map_closed_inside(char **map, int begin, int end);
+int		map_error(const char *message, t_data *data);
+
+void	copy_map(int fd, t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jmafueni <jmafueni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 18:36:19 by jmafueni          #+#    #+#             */
-/*   Updated: 2025/02/24 17:46:17 by jmafueni         ###   ########.fr       */
+/*   Updated: 2025/02/27 13:59:24 by jmafueni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	map_closed_inside(char **map, int begin, int end)
 			x = 0;
 			while (is_space(map[y][x]))
 				x++;
-			len = ft_strlen(map[y][x]) - 1;
+			len = ft_strlen(map[y]) - 1;
 			if (map[y][x] != '1' || map[y][len - 1] != '1')
 				return (0);
 		}

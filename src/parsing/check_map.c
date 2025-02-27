@@ -6,7 +6,7 @@
 /*   By: jmafueni <jmafueni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:35:12 by jmafueni          #+#    #+#             */
-/*   Updated: 2025/02/24 17:46:14 by jmafueni         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:07:50 by jmafueni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	check_map_name(char *name)
 {
 	size_t	len;
 
-	len = (name);
+	len = ft_strlen(name);
 	if (len <= 4 || len - 1 != 'b' || len - 2 != 'u' || len - 3 != 'c'
 		|| len - 4 != '.')
 		return (1);
@@ -56,17 +56,22 @@ int	check_map_in(char **map)
 		y++;
 	while (map[y])
 	{
+		if (empty_line(map[y]))
+			break ;
 		x = 0;
 		while (map[y][x])
 		{
-			if (map[y][x] != '0' && map[y][x] != '1' && map[y][x] != 'N'
-				&& map[y][x] != 'S' && map[y][x] != 'E' && map[y][x] != 'W'
-					&& is_space(map[x][y]))
+			while (is_space(map[y][x]))
+				x++;
+			if (!map[y][x] || (map[y][x] != '0' && map[y][x] != '1'
+					&& map[y][x] != 'N' && map[y][x] != 'S' && map[y][x] 
+						!= 'E' && map[y][x] != 'W' && is_space(map[x][y])))
 				return (1);
 			x++;
 		}
 		y++;
 	}
+	
 	return (0);
 }
 

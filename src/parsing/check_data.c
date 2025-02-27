@@ -6,7 +6,7 @@
 /*   By: jmafueni <jmafueni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 16:08:02 by jmafueni          #+#    #+#             */
-/*   Updated: 2025/02/25 17:43:14 by jmafueni         ###   ########.fr       */
+/*   Updated: 2025/02/27 15:41:48 by jmafueni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	file_to_image(t_data *data)
 			data->path_floor, &width, &height);
 	if (!data->img_floor || !data->img_wall)
 	{
-		exit_game(data);
+		clear_cub3d(data);
 		exit(0);
 	}
 }
@@ -71,5 +71,8 @@ int	check_color_value(t_data *data)
 		data->sky_g = little_ft_atoi(data->sky_color[i++]);
 		data->sky_b = little_ft_atoi(data->sky_color[i++]);
 	}
+	if (!data->floor_r || !data->floor_g || !data->floor_b
+		|| !data->sky_r || !data->sky_g || !data->sky_b)
+		return (1);
 	return (0);
 }
